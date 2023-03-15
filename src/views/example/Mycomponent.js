@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Childcomponent from './ChildComponent';
 // có 2 kiều component 
 // 1 >>>> là function component
 //  2 >>> class component
@@ -19,6 +19,23 @@ class Mycomponent extends React.Component {
     state = {
         firstName: '',
         lastName: '',
+        arrJobs: [
+            {
+                id: 1,
+                title: 'Developer',
+                salary: '$500',
+            },
+            {
+                id: 2,
+                title: 'Tester',
+                salary: '$400',
+            },
+            {
+                id: 3,
+                title: 'Project',
+                salary: '$1500',
+            }
+        ]
     }
     handleChangeFirstName = (event) => {
         this.setState({
@@ -55,7 +72,15 @@ class Mycomponent extends React.Component {
                     <input type="submit" value="Submit"
                         onClick={(event) => this.handleSubmit(event)} />
                 </form>
+                <Childcomponent
+                    name={this.state.firstName}
+                    age={19}
+                    addresss='binh thuan'
+                    arrJobs={this.state.arrJobs}
 
+                />
+                {/* <Childcomponent name='child two' />
+                <Childcomponent name='child three' /> */}
             </>
 
         )
