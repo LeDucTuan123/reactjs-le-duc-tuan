@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 // có 2 kiều component 
 // 1 >>>> là function component
 //  2 >>> class component
@@ -17,54 +18,52 @@ class Childcomponent extends React.Component {
 
 
     state = {
-        firstName: '',
-        lastName: '',
-        address: '',
+        showJobs: false
     }
-    handleChangeFirstName = (event) => {
+
+
+    handleShowhide = () => {
         this.setState({
-            firstName: event.target.value
+            showJobs: !this.state.showJobs
         })
     }
-    handleChangeLastName = (event) => {
-        this.setState({
-            lastName: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        alert('Hello');
-        console.log('fistName: ', this.state.firstName);
-        console.log('LastName: ', this.state.lastName);
-    }
-
-
-
 
     render() {
-        console.log('Check prods>>>>>>', this.props);
-        let { name, age, address, arrJobs } = this.props;
+
+
+        let { arrJobs } = this.props;
+        let { showJobs } = this.state
+        let check = showJobs === true ? 'True' : 'false'
+        console.log("check = ", check);
         return (
-
             <>
-                <div>Child component {name}</div>
-                <div>Child AGE {age}</div>
-                <div>Child AGE {address}</div>
 
+                {showJobs === false ?
+                    <div>
+                        <button onClick={() => this.handleShowhide()}>Show</button>
+                    </div>
+                    :
+                    <>
+                        <div className='job-lists'>
+                            {
+                                arrJobs.map((item, index) => {
+                                    if (item.salary >= 500) {
+                                        return (
 
-                <div className='job-lists'>
-                    {
-                        arrJobs.map((item, index) => {
-                            return (
+                                            <div key={item.id}>
+                                                {item.title} - {item.salary}$
+                                            </div>
+                                        )
+                                    }
 
-                                <div key={item.id}>
-                                    {item.title} - {item.salary}
-                                </div>
-                            )
-                        })
-                    }
-                </div>
+                                })
+                            }
+                        </div>
+                        <div >
+                            <button onClick={() => this.handleShowhide()}>Hide</button>
+                        </div>
+                    </>
+                }
             </>
 
         )
