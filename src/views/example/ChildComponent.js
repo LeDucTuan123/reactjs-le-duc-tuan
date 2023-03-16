@@ -27,14 +27,19 @@ class Childcomponent extends React.Component {
             showJobs: !this.state.showJobs
         })
     }
+    //hàm delete user
+    handleOnclickDelete = (job) => {
+        console.log('Check>>>> ', job);
+        this.props.deletejob(job)
+    }
 
     render() {
 
 
         let { arrJobs } = this.props;
         let { showJobs } = this.state
-        let check = showJobs === true ? 'True' : 'false'
-        console.log("check = ", check);
+        // let check = showJobs === true ? 'True' : 'false'
+        // // console.log("check = ", check);
         return (
             <>
 
@@ -47,14 +52,15 @@ class Childcomponent extends React.Component {
                         <div className='job-lists'>
                             {
                                 arrJobs.map((item, index) => {
-                                    if (item.salary >= 500) {
-                                        return (
+                                    // if (item.salary >= 500) {
+                                    return (
 
-                                            <div key={item.id}>
-                                                {item.title} - {item.salary}$
-                                            </div>
-                                        )
-                                    }
+                                        <div key={item.id}>
+                                            {item.title} - {item.salary}$ <> </>
+                                            <span onClick={() => this.handleOnclickDelete(item)}>X</span>
+                                        </div>
+                                    )
+                                    // }
 
                                 })
                             }

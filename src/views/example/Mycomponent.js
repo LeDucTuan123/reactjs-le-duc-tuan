@@ -38,7 +38,20 @@ class Mycomponent extends React.Component {
         ]
     }
 
+    addNewJob = (job) => {
+        console.log('Check123: ', job);
+        this.setState({
+            arrJobs: [...this.state.arrJobs, job]
+        })
+    }
 
+    deleteJob = (job) => {
+        let currentjob = this.state.arrJobs;
+        currentjob = currentjob.filter(item => item.id !== job.id);
+        this.setState({
+            arrJobs: currentjob
+        })
+    }
 
 
 
@@ -48,14 +61,16 @@ class Mycomponent extends React.Component {
         return (
 
             <>
-                <AddComponent />
+                <AddComponent
+                    addNewJob={this.addNewJob}
+                />
 
 
 
                 <Childcomponent
 
                     arrJobs={this.state.arrJobs}
-
+                    deletejob={this.deleteJob}
                 />
                 {/* <Childcomponent name='child two' />
                 <Childcomponent name='child three' /> */}
