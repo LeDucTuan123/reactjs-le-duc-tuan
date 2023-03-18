@@ -12,13 +12,15 @@ class Nav extends React.Component {
         return (
             <>
                 <div className="topnav">
-                    <Link to='/'>Home</Link>
-                    <Link to='/todo'>Todo</Link>
-                    <Link to='/about'>About</Link>
-
-                    <a className="active" href="/">Home</a>
-                    <a href="/todo">Todo</a>
-                    <a href="/about">About</a>
+                    <NavLink exact to="/" activeClassName="active">
+                        Home
+                    </NavLink>
+                    <NavLink to="/todo" activeClassName="active">
+                        List todo
+                    </NavLink>
+                    <NavLink to="/about" activeClassName="active">
+                        About
+                    </NavLink>
                 </div>
             </>
         )

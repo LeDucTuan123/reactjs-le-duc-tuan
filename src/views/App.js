@@ -26,50 +26,50 @@ import {
 
 function App() {
   return (
-    // <BrowserRouter>
-    <div className="App">
-      <header className="App-header">
-        <Nav />
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <Home />
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+          {/* <Home />
         <ListTodo /> */}
-        {/* <Mycomponent /> */}
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/todo">
-            <ListTodo />
-          </Route>
-          <Route path="/about">
-            <Mycomponent />
-          </Route>
-        </Switch>
+          {/* <Mycomponent /> */}
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/todo">
+              <ListTodo />
+            </Route>
+            <Route path="/about">
+              <Mycomponent />
+            </Route>
+          </Switch>
 
 
-      </header>
+        </header>
 
 
 
 
-      {/* thư viện toastify */}
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      {/* Same as */}
-      <ToastContainer />
+        {/* thư viện toastify */}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
 
-    </div>
-    // </BrowserRouter >
+      </div>
+    </BrowserRouter >
   )
 }
 // toast.success('Chúc bạn 1 ngày tốt lành')
