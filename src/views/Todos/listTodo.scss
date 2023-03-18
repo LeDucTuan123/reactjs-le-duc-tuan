@@ -1,0 +1,33 @@
+.list-todo-container {
+    button {
+        cursor: pointer;
+    }
+
+    .add-todo {
+        .add {
+            margin: 0 10px;
+        }
+    }
+
+    .list-todo-content {
+        width: 400px;
+        margin: 0 auto;
+
+        .todo-child {
+
+            // dấu & chỉ có 1 thằng đầu
+            &:first-child {
+                border-top: 1px solid;
+            }
+
+            height: 40px;
+            border-bottom: 1px solid;
+            margin: 10px;
+
+            .edit {
+                margin: 0 10px;
+            }
+
+        }
+    }
+}
