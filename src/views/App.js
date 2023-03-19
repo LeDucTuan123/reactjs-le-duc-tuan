@@ -3,6 +3,8 @@ import './App.scss';
 import ListTodo from './Todos/ListTodo';
 import Nav from './Nav/Nav';
 import Home from './example/home';
+import ListUser from './User/ListUser';
+
 
 //thư viện toastify
 import { ToastContainer, toast } from 'react-toastify';
@@ -43,6 +45,9 @@ function App() {
             </Route>
             <Route path="/about">
               <Mycomponent />
+            </Route>
+            <Route path="/user">
+              <ListUser />
             </Route>
           </Switch>
 
