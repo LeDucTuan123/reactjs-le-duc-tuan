@@ -4,7 +4,7 @@ import ListTodo from './Todos/ListTodo';
 import Nav from './Nav/Nav';
 import Home from './example/home';
 import ListUser from './User/ListUser';
-
+import DetailUser from './User/DetailUser';
 
 //thư viện toastify
 import { ToastContainer, toast } from 'react-toastify';
@@ -46,8 +46,11 @@ function App() {
             <Route path="/about">
               <Mycomponent />
             </Route>
-            <Route path="/user">
+            <Route path="/user" exact>
               <ListUser />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
             </Route>
           </Switch>
 

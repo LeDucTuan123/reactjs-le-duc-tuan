@@ -2,6 +2,9 @@ import React from "react";
 // thư viện này dùng để gọi API
 import axios from "axios";
 import "./listUser.scss";
+
+import { withRouter } from "react-router-dom";
+
 class ListUser extends React.Component {
     //hamf nayf cua react
 
@@ -23,6 +26,10 @@ class ListUser extends React.Component {
 
     }
 
+    handleViewDetailUser = (user) => {
+        this.props.history.push(`/user/${user.id}`)
+    }
+
     render() {
 
         let { ListUser } = this.state;
@@ -37,7 +44,9 @@ class ListUser extends React.Component {
                     {ListUser && ListUser.length > 0 &&
                         ListUser.map((item, index) => {
                             return (
-                                <div className="child" key={item.id}>
+                                <div className="child" key={item.id}
+                                    onClick={() => this.handleViewDetailUser(item)}
+                                >
                                     {index + 1} - {item.first_name} - {item.last_name}
                                 </div>
                             )
@@ -51,4 +60,4 @@ class ListUser extends React.Component {
     }
 }
 
-export default ListUser;
+export default withRouter(ListUser);
